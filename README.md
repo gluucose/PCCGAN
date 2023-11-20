@@ -1,2 +1,2 @@
 # PMCC-GAN
-IMAGE2POINTS: A 3D POINT-BASED CONTEXT CLUSTERS GAN FOR HIGH-QUALITY PET IMAGE RECONSTRUCTION
+Image2Points: A 3D Point-based Context Clusters GAN for High-Quality PET Image Reconstruction
