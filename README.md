@@ -1,5 +1,5 @@
 # Image2Points: A 3D Point-based Context Clusters GAN for High-Quality PET Image Reconstruction
-Paper link: https://arxiv.org/abs/2402.00376
+Paper link: [https://arxiv.org/abs/2402.00376](https://ieeexplore.ieee.org/document/10446360)
 
 Accepted by ICASSP 2024
 ## Abstract 
