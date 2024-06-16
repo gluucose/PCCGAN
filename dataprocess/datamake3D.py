@@ -1,9 +1,5 @@
 # -*- coding = utf-8 -*-
 
-# @time:2023/5/8 23:21
-
-# Author:Cui
-
 import os
 
 import SimpleITK as sitk

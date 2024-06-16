@@ -1,0 +1,8 @@
+numpy==1.24.3
+pillow==9.0.1
+matplotlib==3.7.2
+timm==0.5.4
+eniops==0.4.1
+scipy==1.8.0
+torch==1.11.0+cu113
+torchvision==0.12.0+cu113

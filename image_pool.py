@@ -1,10 +1,7 @@
 # -*- coding = utf-8 -*-
 
-# @time:2023/5/11 16:33
-
-# Author:Cui
-
 import random
+
 import torch
 
 

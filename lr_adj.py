@@ -1,9 +1,5 @@
 # -*- coding = utf-8 -*-
 
-# @time:2023/5/11 16:32
-
-# Author:Cui
-
 def update_learning_rate(optimizer_G):
     niter_decay = 50
     old_lr = optimizer_G.state_dict()['param_groups'][0]['lr']

@@ -1,14 +1,9 @@
 # -*- coding = utf-8 -*-
-
-# @time:2023/5/8 21:47
-
-# Author:Cui
-
 import random
 
 import torch
 import torch.nn as nn
-from timm.models.layers.helpers import to_3tuple
+from timm.models.layers import to_3tuple
 from torch.autograd import Variable
 
 from context_cluster3D import ContextCluster, basic_blocks
@@ -46,6 +41,7 @@ class PointRecuder(nn.Module):
         return x
 
 
+# generator for PCC-GAN
 class Generator(nn.Module):
     def __init__(self,
                  layers=[1, 1, 1, 1],
@@ -66,6 +62,7 @@ class Generator(nn.Module):
                  ):
         super(Generator, self).__init__()
 
+        # generator for PCC-GAN
         self.CoCs = ContextCluster(
             layers=layers, embed_dims=embed_dims, norm_layer=norm_layer,
             mlp_ratios=mlp_ratios, downsamples=downsamples,
@@ -79,6 +76,42 @@ class Generator(nn.Module):
         EPET = self.CoCs(LPET)
 
         return EPET
+
+
+# # generator for PMC2-GAN
+# class Generator(nn.Module):
+#     def __init__(self,
+#                  layers=[1, 1, 1, 1],
+#                  norm_layer=GroupNorm,
+#                  embed_dims=[64, 128, 256, 512],
+#                  mlp_ratios=[8, 8, 4, 4],
+#                  downsamples=[True, True, True, True],
+#                  proposal_w=[2, 2, 2, 2],
+#                  proposal_h=[2, 2, 2, 2],
+#                  proposal_d=[2, 2, 2, 2],
+#                  fold_w=[1, 1, 1, 1],
+#                  fold_h=[1, 1, 1, 1],
+#                  fold_d=[1, 1, 1, 1],
+#                  heads=[4, 4, 8, 8],
+#                  head_dim=[24, 24, 24, 24],
+#                  down_patch_size=3,
+#                  down_pad=1
+#                  ):
+#         super(Generator, self).__init__()
+#
+#         # generator for PCC-GAN
+#         self.CoCs = (ContextClusterMulti(
+#             layers, embed_dims=embed_dims, norm_layer=norm_layer,
+#             mlp_ratios=mlp_ratios, downsamples=downsamples,
+#             down_patch_size=down_patch_size, down_pad=down_pad,
+#             proposal_w=proposal_w, proposal_h=proposal_h, proposal_d=proposal_d,
+#             fold_w=fold_w, fold_h=fold_h, fold_d=fold_d,
+#             heads=heads, head_dim=head_dim, ))
+#
+#     def forward(self, LPET, MRI):
+#         EPET = self.CoCs(LPET, MRI)
+#
+#         return EPET
 
 
 class Discriminator(nn.Module):

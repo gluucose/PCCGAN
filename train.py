@@ -1,10 +1,4 @@
 # -*- coding = utf-8 -*-
-
-# @time:2023/5/8 12:41
-
-# Author:Cui
-
-
 # os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 import argparse
 import os
@@ -24,7 +18,7 @@ from model.utils import readTxtLineAsList, get_logger, weights_init, del_file, n
 
 
 def parse_option():
-    parser = argparse.ArgumentParser('PMCCGAN training and evaluation script', add_help=False)
+    parser = argparse.ArgumentParser('PCCGAN training and evaluation script', add_help=False)
     parser.add_argument('--file_txt_dir', default="./dataset/split/", type=str,
                         help='path split txt file dir to dataset')
     parser.add_argument('--Ex_num', default=1, type=int, help='path split txt file dir to dataset')
@@ -126,8 +120,8 @@ def train(args):
     for epoch in range(start_epoch, epochs):
         D_losses, G_losses, batch, d_l, g_l = [], [], 0, 0, 0
         for i, (x, y) in enumerate(trainloader):
-            X = norm(x)
-            Y = norm(y)
+            X = norm(x)  # LPET
+            Y = norm(y)  # SPET
 
             d_loss, g_loss = GD_Train(D, G, X, Y, optimizer_G, optimizer_D, L1, device, imgpool, lamb=lamb)
             D_losses.append(d_loss)
