@@ -34,6 +34,7 @@ pip install -r requirements.txt
 context_cluster3D.py is the generator for PCC-GAN (single modality), 
 whereas context_cluster3D_Multi.py is the generator for PMC<sup>2</sup>-GAN (multi-modality).
 The training code is for PMC<sup>2</sup>-GAN with mutli-modality inputs. To train the model, you can run: </p>
+
 ```bash
 python train.py
 ```
